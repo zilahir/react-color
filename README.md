@@ -1,5 +1,7 @@
 # [React Color](http://casesandberg.github.io/react-color/)
 
+> THIS IS A FORKED REPO
+
 [![Npm Version][npm-version-image]][npm-version-url]
 [![Build Status][travis-svg]][travis-url]
 [![License][license-image]][license-url]
