@@ -30,9 +30,15 @@ export const SketchPresetColors = ({ colors, addNewColorToPreset = () => {}, onC
         background: 'none',
         border: 0,
         shadow: 0,
-        margin: 0,
-        padding: 0,
         cursor: 'pointer',
+        width: '16px',
+        height: '16px',
+        margin: '0 10px 10px 0',
+        boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.1)',
+        borderRadius: '3px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       },
     },
     'no-presets': {
@@ -72,12 +78,17 @@ export const SketchPresetColors = ({ colors, addNewColorToPreset = () => {}, onC
           </div>
         )
       }) }
-      <span
+      <div
         style={ styles.plusButton }
-        onClick={addNewColorToPreset}
+        onClick={ addNewColorToPreset }
       >
-        <Icon icon={ plus } size="16px" />
-      </span>
+        <Icon
+          style={{
+            position: 'relative', top: '-1px',
+          }}
+          icon={ plus } size="15px"
+        />
+      </div>
     </div>
   )
 }
