@@ -9,11 +9,12 @@ fs.writeFileSync(path.join(__dirname, '../.babelrc_backup'), originalBabelRC)
 
 const esBabelRC = {
   presets: [
-    ['es2015', { modules: false }],
-    'stage-0',
-    'react',
+    "@babel/env",
+    "@babel/react"
   ],
   plugins: [
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-class-properties",
     [
       'transform-rename-import',
       {
