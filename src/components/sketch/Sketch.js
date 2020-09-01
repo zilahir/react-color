@@ -8,7 +8,7 @@ import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
 
-export const Sketch = ({ width, rgb, hex, hsv, hsl, addNewColorToPreset, onChange, onSwatchHover,
+export const Sketch = ({ width, rgb, hex, hsv, hsl, addNewColorToPreset, duplicateClick, onChange, onSwatchHover,
   disableAlpha, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
@@ -130,7 +130,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, addNewColorToPreset, onChang
       />
       <SketchPresetColors
         colors={ presetColors }
-        onClick={ onChange }
+        onClick={ duplicateClick }
         onSwatchHover={ onSwatchHover }
         addNewColorToPreset={ addNewColorToPreset }
       />
@@ -143,10 +143,12 @@ Sketch.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   styles: PropTypes.object,
   addNewColorToPreset: PropTypes.func,
+  duplicateClick: PropTypes.func,
 }
 
 Sketch.defaultProps = {
   disableAlpha: false,
+  duplicateClick: () => {},
   addNewColorToPreset: () => {},
   width: 200,
   styles: {},

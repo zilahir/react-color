@@ -41,13 +41,6 @@ export const SketchPresetColors = ({ colors, addNewColorToPreset = () => {}, onC
         alignItems: 'center',
       },
     },
-    'no-presets': {
-      colors: {
-        display: 'none',
-      },
-    },
-  }, {
-    'no-presets': !colors || !colors.length,
   })
 
   const handleClick = (hex, e) => {
