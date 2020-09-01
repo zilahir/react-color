@@ -14,6 +14,7 @@ export default class SyncColorField extends React.Component {
     return React.cloneElement(this.props.children, {
       onChange: handleChange,
       color: this.state.colorField,
+      addNewColorToPreset: () => alert("dikk")
     })
   }
 }

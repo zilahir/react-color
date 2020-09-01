@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
+import { plus } from 'react-icons-kit/fa/plus'
+import Icon from 'react-icons-kit'
 
 import { Swatch } from '../common'
 
-export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }) => {
+export const SketchPresetColors = ({ colors, addNewColorToPreset = () => {}, onClick = () => {}, onSwatchHover }) => {
   const styles = reactCSS({
     'default': {
       colors: {
@@ -23,6 +25,14 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
       swatch: {
         borderRadius: '3px',
         boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',
+      },
+      plusButton: {
+        background: 'none',
+        border: 0,
+        shadow: 0,
+        margin: 0,
+        padding: 0,
+        cursor: 'pointer',
       },
     },
     'no-presets': {
@@ -47,7 +57,7 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
         const c = typeof colorObjOrString === 'string'
           ? { color: colorObjOrString }
           : colorObjOrString
-        const key = `${c.color}${c.title || ''}`
+        const key = `${ c.color } ${ c.title || '' }`
         return (
           <div key={ key } style={ styles.swatchWrap }>
             <Swatch
@@ -62,6 +72,12 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
           </div>
         )
       }) }
+      <span
+        style={ styles.plusButton }
+        onClick={addNewColorToPreset}
+      >
+        <Icon icon={ plus } size="16px" />
+      </span>
     </div>
   )
 }
